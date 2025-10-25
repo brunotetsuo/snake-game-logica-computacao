@@ -110,6 +110,10 @@
     </div>
 
     <script>
+      let bgMusic = new Audio("music.mp3");
+      bgMusic.loop = true;
+      bgMusic.volume = 0.3;
+
       const canvas = document.getElementById("game");
       const ctx = canvas.getContext("2d");
       const questionEl = document.getElementById("question");
@@ -121,12 +125,8 @@
       const TILE_COUNT = 20;
       let tileSize = canvas.width / TILE_COUNT;
 
-      const correctSound = new Audio(
-        "https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"
-      );
-      const wrongSound = new Audio(
-        "https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg"
-      );
+      const correctSound = new Audio("correct.wav");
+      const wrongSound = new Audio("failure.wav");
 
       const questions = [
         { q: "Se, somente se", options: ["↔", "→"], correct: 0 },
@@ -196,6 +196,8 @@
       });
 
       startBtn.addEventListener("click", () => {
+        bgMusic.play();
+
         startScreen.style.display = "none";
         resetGame();
         dir = { x: 1, y: 0 };
@@ -208,7 +210,14 @@
       pauseBtn.addEventListener("click", () => {
         if (!running) return;
         paused = !paused;
-        pauseBtn.textContent = paused ? "Continuar" : "Pausar";
+
+        if (paused) {
+          pauseBtn.textContent = "Continuar";
+          bgMusic.pause(); // pausa a música
+        } else {
+          pauseBtn.textContent = "Pausar";
+          bgMusic.play(); // retoma a música
+        }
       });
 
       function update() {
@@ -228,6 +237,7 @@
         }
 
         snake.unshift(head);
+
         const ateIndex = foods.findIndex(
           (f) => f.x === head.x && f.y === head.y
         );
@@ -238,13 +248,19 @@
           if (isCorrect) {
             score++;
             correctSound.play();
-            effectColor = "rgba(77,171,247,0.5)";
+            // alterado de azul para verde
+            effectColor = "rgba(0,255,100,0.4)";
             snake.push({ ...snake[snake.length - 1] });
           } else {
             wrongSound.play();
             effectColor = "rgba(255,0,0,0.4)";
-            if (snake.length > 1) snake.pop();
-            else gameOver = true;
+
+            if (snake.length <= 2) {
+              gameOver = true;
+            } else {
+              snake.pop();
+              snake.pop();
+            }
           }
 
           scoreEl.textContent = "Score: " + score;
@@ -324,7 +340,7 @@
       }
 
       let frameCount = 0;
-      const speed = 10; // quanto maior, mais devagar
+      const speed = 10;
 
       function loop() {
         if (!running) return;
