@@ -1,49 +1,19 @@
 /* ========= RANKING LOCAL STORAGE ========= */
 let playerName = "";
 
-async function saveRanking(name, score) {
-  // Try to save on server first
-  try {
-    await fetch('/save-ranking', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, score })
-    });
-    return;
-  } catch (e) {
-    // fall through to localStorage
-  }
-
-  // Fallback: localStorage (when no server is available)
+function saveRanking(name, score) {
   const ranking = JSON.parse(localStorage.getItem("snakeRanking") || "[]");
   ranking.push({ name, score });
   ranking.sort((a, b) => b.score - a.score);
   localStorage.setItem("snakeRanking", JSON.stringify(ranking));
 }
 
-async function loadRanking() {
-  // Try to load from server first
-  try {
-    const res = await fetch('/ranking.txt');
-    if (res.ok) {
-      const text = await res.text();
-      try {
-        const data = JSON.parse(text || '[]');
-        return data;
-      } catch (e) {
-        // parsing failed, fallback to localStorage
-      }
-    }
-  } catch (e) {
-    // network error, fallback
-  }
-
-  // Fallback to localStorage
+function loadRanking() {
   return JSON.parse(localStorage.getItem("snakeRanking") || "[]");
 }
 
-async function showRanking() {
-  const data = await loadRanking();
+function showRanking() {
+  const data = loadRanking();
   const rankingBox = document.getElementById("rankingBox");
 
   if (!data.length) {
