@@ -116,11 +116,13 @@ input {
 .controls .ctl-row {
   display: flex;
   gap: 8px;
+  align-items: center;
+  justify-content: center;
 }
 
 /* show controls on small screens */
 @media (max-width: 600px) {
-  .controls { display: flex; }
+  .controls { display: flex; flex-direction: column; }
   canvas { width: calc(100vw - 40px); height: calc(100vw - 40px); }
 }
 
