@@ -1,5 +1,9 @@
 # Cobrinha — Projeto para Disciplina de Lógica de Computação (2025)
 
+> Versão hospedada (ACESSAR): https://snake-game-logica-computacao.vercel.app/
+>
+> Atenção: utilize somente a versão hospedada acima — este repositório não precisa ser executado offline.
+
 Projeto desenvolvido como trabalho do 2º período do curso de Ciência da Computação — UNIFUCAMP (2025).
 
 **Professor:** Luiz Gustavo
