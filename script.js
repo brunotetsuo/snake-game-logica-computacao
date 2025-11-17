@@ -59,6 +59,8 @@ let questions = [
   { q: "OU", options: ["∧", "∨"], correct: 1 },
   { q: "Se, Então", options: ["↔", "→"], correct: 1 },
   { q: "P ∨ Q =", options: ["H", "R"], correct: 0 },
+  { q: "_ ↔ P = T", options: ["¬P", "P"], correct: 1 },
+  { q: "_ ↔ P = F", options: ["¬P", "P"], correct: 0 },
 ];
 
 questions = questions.sort(() => Math.random() - 0.5);
