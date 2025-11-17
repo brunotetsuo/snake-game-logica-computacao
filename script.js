@@ -119,9 +119,9 @@ function bindControl(btn, x, y) {
 }
 
 bindControl(upBtn, 0, -1);
+bindControl(downBtn, 0, 1);
 bindControl(leftBtn, -1, 0);
 bindControl(rightBtn, 1, 0);
-bindControl(downBtn, 0, 1);
 
 // swipe detection on canvas
 let touchStartX = null;
