@@ -323,8 +323,15 @@ function draw() {
     ctx.font = "bold 42px Inter";
     ctx.textAlign = "center";
     ctx.fillText("GAME OVER!", canvas.width / 2, canvas.height / 2);
-
-    setTimeout(() => location.reload(), 1500);
+    // show DOM overlay with Play Again button (do not auto-reload)
+    const overlay = document.getElementById('gameOverOverlay');
+    const finalScore = document.getElementById('finalScore');
+    if (overlay) {
+      finalScore.textContent = 'Score: ' + score;
+      overlay.style.display = 'flex';
+      // pause music
+      try { bgMusic.pause(); } catch (e) {}
+    }
   }
 }
 
@@ -341,3 +348,18 @@ function loop() {
 }
 
 resetGame();
+
+// Game over -> Play Again button handler
+const playAgainBtn = document.getElementById('playAgainBtn');
+const gameOverOverlay = document.getElementById('gameOverOverlay');
+if (playAgainBtn) {
+  playAgainBtn.addEventListener('click', () => {
+    if (gameOverOverlay) gameOverOverlay.style.display = 'none';
+    // show start screen so user can enter name and start again
+    startScreen.style.display = 'flex';
+    // reset game state
+    resetGame();
+    // show updated ranking (last score already saved)
+    showRanking();
+  });
+}
