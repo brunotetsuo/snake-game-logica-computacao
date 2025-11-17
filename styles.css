@@ -113,16 +113,13 @@ input {
   border: none;
   box-shadow: 0 6px 18px rgba(2,6,23,0.5);
 }
-.controls .ctl-row {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  justify-content: center;
-}
+/* remove ctl-row rules — buttons are direct children now */
+
 
 /* show controls on small screens */
 @media (max-width: 600px) {
-  .controls { display: flex; flex-direction: column; }
+  /* show controls in a single row on small screens: up, down, left, right */
+  .controls { display: flex; flex-direction: row; flex-wrap: nowrap; }
   canvas { width: calc(100vw - 40px); height: calc(100vw - 40px); }
 }
 
