@@ -95,6 +95,68 @@ function startTimer() {
   }, 1000);
 }
 
+// Resize canvas to fit viewport on mobile and recalc tileSize
+function resizeCanvas() {
+  // prefer a square canvas sized to viewport (with some padding)
+  const padding = 40; // px
+  const maxSize = Math.min(window.innerWidth - padding, 600);
+  canvas.width = Math.max(200, Math.floor(maxSize));
+  canvas.height = canvas.width;
+  tileSize = canvas.width / TILE_COUNT;
+}
+
+// touch / swipe support
+const upBtn = document.getElementById('upBtn');
+const leftBtn = document.getElementById('leftBtn');
+const rightBtn = document.getElementById('rightBtn');
+const downBtn = document.getElementById('downBtn');
+
+function bindControl(btn, x, y) {
+  if (!btn) return;
+  const handler = (e) => { e.preventDefault(); setNextDir(x, y); };
+  btn.addEventListener('touchstart', handler, { passive: false });
+  btn.addEventListener('mousedown', (e) => { e.preventDefault(); setNextDir(x, y); });
+}
+
+bindControl(upBtn, 0, -1);
+bindControl(leftBtn, -1, 0);
+bindControl(rightBtn, 1, 0);
+bindControl(downBtn, 0, 1);
+
+// swipe detection on canvas
+let touchStartX = null;
+let touchStartY = null;
+canvas.addEventListener('touchstart', (e) => {
+  if (!e.touches || e.touches.length !== 1) return;
+  touchStartX = e.touches[0].clientX;
+  touchStartY = e.touches[0].clientY;
+}, { passive: true });
+
+canvas.addEventListener('touchend', (e) => {
+  if (touchStartX === null || touchStartY === null) return;
+  const touch = (e.changedTouches && e.changedTouches[0]) || null;
+  if (!touch) { touchStartX = touchStartY = null; return; }
+  const dx = touch.clientX - touchStartX;
+  const dy = touch.clientY - touchStartY;
+  const absX = Math.abs(dx);
+  const absY = Math.abs(dy);
+  const threshold = 30; // px
+  if (Math.max(absX, absY) < threshold) { touchStartX = touchStartY = null; return; }
+  if (absX > absY) {
+    // horizontal
+    if (dx > 0) setNextDir(1, 0); else setNextDir(-1, 0);
+  } else {
+    // vertical
+    if (dy > 0) setNextDir(0, 1); else setNextDir(0, -1);
+  }
+  touchStartX = touchStartY = null;
+}, { passive: true });
+
+// resize canvas now and on window resize/orientation change
+resizeCanvas();
+window.addEventListener('resize', () => { resizeCanvas(); draw(); });
+window.addEventListener('orientationchange', () => { setTimeout(() => { resizeCanvas(); draw(); }, 200); });
+
 
 function spawnFoods() {
   const pos = [];

@@ -94,3 +94,33 @@ input {
   color: rgba(230,238,248,0.7);
   text-align: center;
 }
+
+/* Touch controls */
+.controls {
+  display: none;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+.controls .ctl {
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  font-size: 20px;
+  background: rgba(11,32,54,0.9);
+  color: var(--text);
+  border: none;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.5);
+}
+.controls .ctl-row {
+  display: flex;
+  gap: 8px;
+}
+
+/* show controls on small screens */
+@media (max-width: 600px) {
+  .controls { display: flex; }
+  canvas { width: calc(100vw - 40px); height: calc(100vw - 40px); }
+}
+
