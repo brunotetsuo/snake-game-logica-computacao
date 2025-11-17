@@ -1,8 +1,6 @@
 # Cobrinha — Projeto para Disciplina de Lógica de Computação (2025)
 
-> Versão hospedada (ACESSAR): https://snake-game-logica-computacao.vercel.app/
->
-> Atenção: utilize somente a versão hospedada acima — este repositório não precisa ser executado offline.
+> https://snake-game-logica-computacao.vercel.app/
 
 Projeto desenvolvido como trabalho do 2º período do curso de Ciência da Computação — UNIFUCAMP (2025).
 
@@ -41,14 +39,8 @@ Dicas
 - Use movimentos suaves e antecipe a posição das opções; o jogo usa uma grade fixa (20x20) para o movimento.
 - Se o áudio não tocar ao iniciar, verifique as permissões do navegador (alguns exigem primeiro toque do usuário para liberar som).
 
-Versão hospedada (recomendada)
 --------------------------------
 O jogo já está publicado e disponível publicamente em produção. Para jogar, abra a versão hospedada:
 
 https://snake-game-logica-computacao.vercel.app/
 
-Observação: acessar a versão hospedada é a forma recomendada — não é necessário rodar o projeto localmente.
-
-Licença e observações
----------------------
-Este projeto é um trabalho acadêmico. Sinta-se livre para estudar e adaptar o código para fins educacionais. Se quiser que eu adicione instruções para deploy ou melhore o README (ex.: screenshots, how-to-play em imagens), posso fazer.
