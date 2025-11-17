@@ -40,25 +40,13 @@ Dicas
 - Use movimentos suaves e antecipe a posição das opções; o jogo usa uma grade fixa (20x20) para o movimento.
 - Se o áudio não tocar ao iniciar, verifique as permissões do navegador (alguns exigem primeiro toque do usuário para liberar som).
 
-Desenvolvimento e execução local
+Versão hospedada (recomendada)
 --------------------------------
-Recomenda-se usar um servidor HTTP simples para testar no celular/lan:
+O jogo já está publicado e disponível publicamente em produção. Para jogar, abra a versão hospedada:
 
-Com Node.js (recomendado):
+https://snake-game-logica-computacao.vercel.app/
 
-```powershell
-cd 'd:\projetos\snake-game-logica-computacao'
-npx http-server -p 8000
-# depois abra no celular: http://SEU_IP:8000
-```
-
-Com Python (se disponível):
-
-```powershell
-cd 'd:\projetos\snake-game-logica-computacao'
-python -m http.server 8000
-# depois abra no celular: http://SEU_IP:8000
-```
+Observação: acessar a versão hospedada é a forma recomendada — não é necessário rodar o projeto localmente.
 
 Licença e observações
 ---------------------
