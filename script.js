@@ -104,25 +104,6 @@ function resizeCanvas() {
   canvas.height = canvas.width;
   tileSize = canvas.width / TILE_COUNT;
 }
-
-// touch / swipe support
-const upBtn = document.getElementById('upBtn');
-const leftBtn = document.getElementById('leftBtn');
-const rightBtn = document.getElementById('rightBtn');
-const downBtn = document.getElementById('downBtn');
-
-function bindControl(btn, x, y) {
-  if (!btn) return;
-  const handler = (e) => { e.preventDefault(); setNextDir(x, y); };
-  btn.addEventListener('touchstart', handler, { passive: false });
-  btn.addEventListener('mousedown', (e) => { e.preventDefault(); setNextDir(x, y); });
-}
-
-bindControl(upBtn, 0, -1);
-bindControl(downBtn, 0, 1);
-bindControl(leftBtn, -1, 0);
-bindControl(rightBtn, 1, 0);
-
 // swipe detection on canvas
 let touchStartX = null;
 let touchStartY = null;

@@ -7,6 +7,26 @@
   --text: #e6eef8;
 }
 
+@media (max-width: 600px) {
+  canvas { width: calc(100vw - 40px); height: calc(100vw - 40px); }
+}
+    inset 0 1px 0 rgba(255, 255, 255, 0.02);
+  image-rendering: pixelated;
+}
+
+.score {
+  font-size: 20px;
+}
+
+:root {
+  --bg: #0f1724;
+  --grid: #0b1220;
+  --snake: #7ee787;
+  --food: #4dabf7;
+  --panel: #0b1220cc;
+  --text: #e6eef8;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -95,31 +115,7 @@ input {
   text-align: center;
 }
 
-/* Touch controls */
-.controls {
-  display: none;
-  gap: 8px;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-}
-.controls .ctl {
-  width: 56px;
-  height: 56px;
-  border-radius: 10px;
-  font-size: 20px;
-  background: rgba(11,32,54,0.9);
-  color: var(--text);
-  border: none;
-  box-shadow: 0 6px 18px rgba(2,6,23,0.5);
-}
-/* remove ctl-row rules — buttons are direct children now */
-
-
-/* show controls on small screens */
 @media (max-width: 600px) {
-  /* show controls in a single row on small screens: up, down, left, right */
-  .controls { display: flex; flex-direction: row; flex-wrap: nowrap; }
   canvas { width: calc(100vw - 40px); height: calc(100vw - 40px); }
 }
 
