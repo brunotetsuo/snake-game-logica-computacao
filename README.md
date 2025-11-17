@@ -25,7 +25,6 @@ Como jogar
 ----------
 No computador (desktop/laptop):
 
-- Abra `index.html` no navegador (ou rode um servidor HTTP local e acesse `http://localhost:PORT`).
 - Preencha o campo com seu nome e clique em **Iniciar Jogo**.
 - Controle a cobrinha usando as teclas de seta (`↑ ↓ ← →`) ou `W A S D`.
 - No tabuleiro aparecerão duas opções para cada pergunta; leve a cobrinha até a opção correta para marcar ponto.
@@ -34,8 +33,6 @@ No computador (desktop/laptop):
 
 No celular (touch):
 
-- Recomenda-se acessar o jogo via HTTP local (ex.: hospedando a pasta com um servidor simples) para que os áudios carreguem corretamente.
-- Abra o jogo no navegador do celular (ex.: `http://<IP-do-PC>:8000` se usar um servidor no computador). Você também pode abrir o arquivo `index.html` diretamente, porém alguns navegadores bloqueiam autoplay de áudio quando aberto como `file://`.
 - Toque e arraste (swipe) no canvas para controlar a direção da cobrinha — deslize na direção desejada (esquerda/direita/cima/baixo).
 - Toque em **Iniciar Jogo** para começar (é necessário um gesto do usuário para liberar reprodução de áudio em alguns dispositivos).
 
