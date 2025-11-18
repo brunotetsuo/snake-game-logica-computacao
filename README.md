@@ -6,7 +6,7 @@ Projeto desenvolvido como trabalho do 2º período do curso de Ciência da Compu
 
 **Professor:** Luiz Gustavo
 
-**Autores:** Bruno Tetsuo, Pedro Augusto e Eli Junior
+**Autores:** Bruno Tetsuo, Pedro Augusto e Eli Junio
 
 Descrição
 ---------
