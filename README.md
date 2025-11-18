@@ -44,3 +44,16 @@ O jogo já está publicado e disponível publicamente em produção. Para jogar,
 
 https://snake-game-logica-computacao.vercel.app/
 
+Tecnologias usadas
+------------------
+- **HTML5** — marcação semântica e estrutura da página.
+- **CSS3** — estilos, responsividade e layout adaptável.
+- **JavaScript (vanilla, ES6+)** — lógica do jogo, atualização de estado e interação.
+- **Canvas API (2D)** — renderização do tabuleiro e da cobrinha.
+- **Web Audio API** — reprodução de efeitos sonoros e música de fundo.
+- **localStorage** — persistência do ranking e configurações no cliente.
+- **Git & GitHub** — controle de versão e repositório remoto.
+- **Vercel** — hospedagem estática do projeto em produção.
+- **Visual Studio Code** — editor usado no desenvolvimento.
+- **Windows PowerShell** — comandos locais para testes e deploy.
+
